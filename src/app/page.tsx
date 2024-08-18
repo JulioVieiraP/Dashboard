@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Home = () => {
   return (
-    <main>
+    <main className="sm:ml-14 p-4">
       <h1>Pojeto Dashboard</h1>
     </main>
   );
