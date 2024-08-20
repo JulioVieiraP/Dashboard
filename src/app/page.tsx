@@ -4,7 +4,7 @@ import { BadgeDollarSign, DollarSign, Percent, Users } from "lucide-react";
 const Home = () => {
   return (
     <main className="sm:ml-14 p-4">
-      <section className="grid grid-cols-2 gap-4">
+      <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader>
             <div className="flex items-center justify-center">
