@@ -1,8 +1,7 @@
 import dynamic from "next/dynamic";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { BadgeDollarSign, DollarSign, Percent, Users } from "lucide-react";
-
-const ChartOverview = dynamic(() => import("../components/chart"), { ssr: false });
+import ChartOverview from "@/components/chart";
 
 const Home = () => {
   return (
