@@ -1,9 +1,18 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { DollarSign } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { ChartConfig, ChartContainer } from "../ui/chart";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 const ChartOverview = () => {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
     const chartData = [
         { month: "January", desktop: 186, mobile: 80 },
         { month: "February", desktop: 305, mobile: 200 },
@@ -36,23 +45,25 @@ const ChartOverview = () => {
             </CardHeader>
 
             <CardContent>
-                <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-                    <BarChart data={chartData}>
-                        <CartesianGrid vertical={false} />
-                        <XAxis 
-                            dataKey="month" 
-                            tickLine={false} 
-                            tickMargin={10} 
-                            axisLine={false} 
-                            tickFormatter={(value) => value.slice(0, 3)}
-                        />
-                        <Bar dataKey="desktop" fill={chartConfig.desktop.color} radius={4} />
-                        <Bar dataKey="mobile" fill={chartConfig.mobile.color} radius={4} />
-                    </BarChart>
-                </ChartContainer>
+                {isClient && (
+                    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+                        <BarChart data={chartData}>
+                            <CartesianGrid vertical={false} />
+                            <XAxis
+                                dataKey="month"
+                                tickLine={false}
+                                tickMargin={10}
+                                axisLine={false}
+                                tickFormatter={(value) => value.slice(0, 3)}
+                            />
+                            <Bar dataKey="desktop" fill={chartConfig.desktop.color} radius={4} />
+                            <Bar dataKey="mobile" fill={chartConfig.mobile.color} radius={4} />
+                        </BarChart>
+                    </ChartContainer>
+                )}
             </CardContent>
         </Card>
     );
-}
+};
 
 export default ChartOverview;
