@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { DollarSign } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { ChartConfig, ChartContainer } from "../ui/chart";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 const ChartOverview = () => {
@@ -56,6 +56,7 @@ const ChartOverview = () => {
                                 axisLine={false}
                                 tickFormatter={(value) => value.slice(0, 3)}
                             />
+                            <ChartTooltip content={<ChartTooltipContent />} />
                             <Bar dataKey="desktop" fill={chartConfig.desktop.color} radius={4} />
                             <Bar dataKey="mobile" fill={chartConfig.mobile.color} radius={4} />
                         </BarChart>
